@@ -1,22 +1,19 @@
 const stringLength = require('../string');
 
 describe('stringLength', () => {
-  test('Should return the length of a valid string', () => {
-  expect(stringLength('Hello')).toBe(4);
-});
+  test('Debería devolver la longitud de una cadena válida', () => {
+    expect(stringLength('Hola')).toBe(4);
+  });
 
-test('Should throw an error if the string has no characters', () => {
+  test('Debería lanzar un error si la cadena no tiene caracteres', () => {
     expect(() => {
-    stringLength('');
-  }).toThrow('The string must have between 1 and 10 characters');
+      stringLength('');
+    }).toThrow('La cadena debe tener entre 1 y 10 caracteres');
+  });
+
+  test('Debería lanzar un error si la cadena tiene más de 10 caracteres', () => {
+    expect(() => {
+      stringLength('Hola mundo!');
+    }).toThrow('La cadena debe tener entre 1 y 10 caracteres');
+  });
 });
-
-test('Should throw an error if the string has more than 10 characters', () => {
-   expect(() => {
-   stringLength('Hello world!');
-  }).toThrow('The string must have between 1 and 10 characters');
-});
-});
-
-
-
